@@ -1,4 +1,3 @@
-from urllib import response
 import requests
 import json
 
@@ -44,11 +43,8 @@ def push_wechat(infos):
         desp += '| ' + info['location'] + ' | ' + info['time'] + ' | ' + info[
             'number'] + ' | ' + info['method'] + ' | ' + info[
                 'platform'] + ' |\n'
-    # print(desp)
-    # with open('preview.md', 'w') as f:
-    #     f.write(desp)
     data = {'title': 'hpv查询结果', 'channel': 9, 'desp': desp}
-    # requests.post(url=push_url.format(key=Thm_key), data=data)
+    requests.post(url=push_url.format(key=Thm_key), data=data)
     requests.post(url=push_url.format(key=Hxy_key), data=data)
 
 
